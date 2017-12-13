@@ -7,13 +7,13 @@
 import React, { Component } from 'react';
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
-import Index from './src/components/Index';
+import TabNav from './src/Components/Route';
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Index/>
+        <TabNav/>
       </Provider>
       
     );
