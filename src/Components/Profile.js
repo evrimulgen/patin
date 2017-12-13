@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 // create a component
 class ProfileScreen extends Component {
     static navigationOptions = {
-        tabBarLabel: 'Profile',
+        tabBarLabel: 'Hồ sơ',
         tabBarIcon: ({ tintColor }) => (
           <Image
             source={require('../Images/Profile/icon_tabnav.png')}

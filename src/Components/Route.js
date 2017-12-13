@@ -21,6 +21,7 @@ const TabNav = TabNavigator({
         swipeEnabled: true,
         tabBarOptions:{
             activeTintColor: 'blue',
+            inactiveTintColor: '#666666',
             //android options
             //showIcon: true,
             upperCaseLabel: false,
