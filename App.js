@@ -7,13 +7,13 @@
 import React, { Component } from 'react';
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
-import App from './src/components/App';
+import Index from './src/components/Index';
 
-export default class index extends Component {
+export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <App/>
+        <Index/>
       </Provider>
       
     );
