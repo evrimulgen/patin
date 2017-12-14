@@ -7,6 +7,7 @@ const deviceScreen = Dimensions.get('window')
 // create a component
 class LearnScreen extends Component {
     static navigationOptions = {
+
         tabBarLabel: 'Bài tập',
         tabBarIcon: ({ tintColor }) => (
             <Image
@@ -18,6 +19,7 @@ class LearnScreen extends Component {
     render() {
         return (
             <ScrollView style={styles.container}>
+                <StatusBar hidden />
                 <TouchableOpacity style={styles.btn}>
                     <Image
                         source={require('../Images/Learn/basic_bg.jpg')}
@@ -27,8 +29,10 @@ class LearnScreen extends Component {
                         <Text style={styles.title}>Cơ bản</Text>
                     </View>
                 </TouchableOpacity>
-               
-                <TouchableOpacity style={styles.btn}>
+
+                <TouchableOpacity style={styles.btn}
+                    onPress={() => { this.props.navigation.navigate('List') }}
+                >
                     <Image
                         source={require('../Images/Learn/slalom_bg.jpg')}
                         style={styles.img}
@@ -47,7 +51,7 @@ class LearnScreen extends Component {
                         <Text style={styles.title}>Slide</Text>
                     </View>
                 </TouchableOpacity>
-   
+
                 <TouchableOpacity style={styles.btn}>
                     <Image
                         source={require('../Images/Learn/basic_bg.jpg')}
@@ -57,7 +61,7 @@ class LearnScreen extends Component {
                         <Text style={styles.title}>Cơ bản</Text>
                     </View>
                 </TouchableOpacity>
-                
+
                 <TouchableOpacity style={styles.btn}>
                     <Image
                         source={require('../Images/Learn/basic_bg.jpg')}
@@ -78,7 +82,6 @@ class LearnScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
         //backgroundColor: '#2c3e50',
     },
     btn: {
@@ -87,7 +90,6 @@ const styles = StyleSheet.create({
         margin: 15,
         borderRadius: 25,
         backgroundColor: 'transparent',
-
     },
     icon: {
         width: 26,
@@ -96,12 +98,9 @@ const styles = StyleSheet.create({
     img: {
         width: deviceScreen.width - 30,
         height: 200,
-
         borderRadius: 25,
-
     },
     titlecontent: {
-        
         position: 'absolute',
         backgroundColor: 'red',
         width: undefined,
@@ -109,11 +108,10 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         borderRadius: 25,
         backgroundColor: 'transparent'
-
     },
     title: {
         color: 'white',
-        
+
         ...Platform.select({
             ios: {
                 fontSize: 60, fontWeight: 'bold'
