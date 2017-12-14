@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 //import screen
 import LearnScreen from './Learn';
@@ -15,6 +15,7 @@ const TabNav = TabNavigator({
     },
 },
     {
+        tabBarComponent:TabBarBottom,
         initialRouteName: 'Learn',
         tabBarPosition: 'bottom',
         animationEnabled: true,
@@ -23,11 +24,13 @@ const TabNav = TabNavigator({
             activeTintColor: 'blue',
             inactiveTintColor: '#666666',
             //android options
-            //showIcon: true,
+            showIcon: true,
             upperCaseLabel: false,
             style: {
-                borderTopWidth: 1,
+                borderTopColor:'transparent',
                 backgroundColor: '#f2f2f2',
+                flexGrow:1,
+                
               },
               labelStyle: {
                 fontSize: 12,

@@ -1,8 +1,8 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, StatusBar, ImageBackground } from 'react-native';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView, Platform } from 'react-native';
 
+const deviceScreen = Dimensions.get('window')
 
 // create a component
 class LearnScreen extends Component {
@@ -15,50 +15,61 @@ class LearnScreen extends Component {
             />
         ),
     };
-
-
-
     render() {
         return (
+            <ScrollView style={styles.container}>
+                <TouchableOpacity style={styles.btn}>
+                    <Image
+                        source={require('../Images/Learn/basic_bg.jpg')}
+                        style={styles.img}
+                    />
+                    <View style={styles.titlecontent}>
+                        <Text style={styles.title}>Cơ bản</Text>
+                    </View>
+                </TouchableOpacity>
+               
+                <TouchableOpacity style={styles.btn}>
+                    <Image
+                        source={require('../Images/Learn/slalom_bg.jpg')}
+                        style={styles.img}
+                    />
+                    <View style={styles.titlecontent}>
+                        <Text style={styles.title}>Slalom</Text>
+                    </View>
+                </TouchableOpacity>
+                <View style={{ height: 5 }}></View>
+                <TouchableOpacity style={styles.btn}>
+                    <Image
+                        source={require('../Images/Learn/slide_bg.jpg')}
+                        style={styles.img}
+                    />
+                    <View style={styles.titlecontent}>
+                        <Text style={styles.title}>Slide</Text>
+                    </View>
+                </TouchableOpacity>
+   
+                <TouchableOpacity style={styles.btn}>
+                    <Image
+                        source={require('../Images/Learn/basic_bg.jpg')}
+                        style={styles.img}
+                    />
+                    <View style={styles.titlecontent}>
+                        <Text style={styles.title}>Cơ bản</Text>
+                    </View>
+                </TouchableOpacity>
+                
+                <TouchableOpacity style={styles.btn}>
+                    <Image
+                        source={require('../Images/Learn/basic_bg.jpg')}
+                        style={styles.img}
+                    />
+                    <View style={styles.titlecontent}>
+                        <Text style={styles.title}>Cơ bản</Text>
+                    </View>
+                </TouchableOpacity>
 
-            <View style={styles.container}>
-                <StatusBar hidden />
-                <View style={styles.basic}>
-                    <TouchableOpacity style={styles.touch}>
 
-                        <Image style={styles.image}
-                            source={require('../Images/Learn/basic_bg.jpg')} />
-                        {/* <Text>Cơ bản</Text> */}
-
-                    </TouchableOpacity>
-                </View>
-                <Grid style={styles.grid}>
-                    <Col>
-                        <Row style={styles.row}>
-                            <TouchableOpacity style={styles.touch}>
-                                <Text>Slalom</Text>
-                            </TouchableOpacity>
-                        </Row>
-                        <Row style={styles.row}>
-                            <TouchableOpacity style={styles.touch}>
-                                <Text>Slide</Text>
-                            </TouchableOpacity>
-                        </Row>
-                    </Col>
-                    <Col>
-                        <Row style={styles.row}>
-                            <TouchableOpacity style={styles.touch}>
-                                <Text>Jump</Text>
-                            </TouchableOpacity>
-                        </Row>
-                        <Row style={styles.row}>
-                            <TouchableOpacity style={styles.touch}>
-                                <Text>Dance</Text>
-                            </TouchableOpacity>
-                        </Row>
-                    </Col>
-                </Grid>
-            </View>
+            </ScrollView>
         );
     }
 }
@@ -67,38 +78,53 @@ class LearnScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+
         //backgroundColor: '#2c3e50',
+    },
+    btn: {
+        width: undefined,
+        height: 200,
+        margin: 15,
+        borderRadius: 25,
+        backgroundColor: 'transparent',
+
     },
     icon: {
         width: 26,
         height: 26,
+    },
+    img: {
+        width: deviceScreen.width - 30,
+        height: 200,
+
+        borderRadius: 25,
 
     },
-    grid: {
-        flex: 2,
-    },
-    row: {
-        // borderWidth: 3
-        padding: 10
-    },
-    basic: {
-        flex: 1,
-        padding: 10,
-        width: Dimensions.get('window').width,
-    },
-    touch: {
-        flex: 1,
-        borderWidth: 3,
-        borderRadius: 20,
-    },
-    image:{ 
-        flex: 1, 
-        resizeMode: 'cover',
+    titlecontent: {
+        
+        position: 'absolute',
+        backgroundColor: 'red',
         width: undefined,
-        height: undefined
+        height: 200,
+        marginLeft: 15,
+        borderRadius: 25,
+        backgroundColor: 'transparent'
+
+    },
+    title: {
+        color: 'white',
+        
+        ...Platform.select({
+            ios: {
+                fontSize: 60, fontWeight: 'bold'
+            },
+            android: {
+                fontSize: 60, fontWeight: '600'
+            }
+        })
+
     }
+
 });
 
 //make this component available to the app
