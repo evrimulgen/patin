@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView, Platform } from 'react-native';
 
-const deviceScreen = Dimensions.get('window')
+const deviceScreen = Dimensions.get('window');
+
 
 // create a component
 class LearnScreen extends Component {
@@ -20,7 +21,9 @@ class LearnScreen extends Component {
         return (
             <ScrollView style={styles.container}>
                 <StatusBar hidden />
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn}
+                    onPress={() => { this.props.navigation.navigate('Basic') }}
+                >
                     <Image
                         source={require('../Images/Learn/basic_bg.jpg')}
                         style={styles.img}
@@ -31,7 +34,7 @@ class LearnScreen extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.btn}
-                    onPress={() => { this.props.navigation.navigate('List') }}
+                    onPress={() => { this.props.navigation.navigate('ListSlalom')}}
                 >
                     <Image
                         source={require('../Images/Learn/slalom_bg.jpg')}
@@ -42,7 +45,9 @@ class LearnScreen extends Component {
                     </View>
                 </TouchableOpacity>
                 <View style={{ height: 5 }}></View>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn}
+                    onPress={() => { this.props.navigation.navigate('List') }}
+                >
                     <Image
                         source={require('../Images/Learn/slide_bg.jpg')}
                         style={styles.img}
