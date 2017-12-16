@@ -3,19 +3,25 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 const deviceScreen = Dimensions.get('window');
-const resetAction = NavigationActions.reset({
-    index: 0,
-    actions: [
-      NavigationActions.navigate({ routeName: 'Home'})
-    ]
-  })
+
 
 // create a component
 class StepTwoScreen extends Component {
+    static navigationOptions = {
+        tabBarLabel: '2',
+        title:'StepTwo',
+        headerStyle:{
+            height:30,
+            borderBottomColor:'transparent',
+        },
+        headerTitleStyle:{
+            alignSelf:'center'
+        }
+    }
     render() {
         return (
             <View style={{flex:1}}>
-                <View style={{ height: 50, flexDirection: 'row' }}>
+                {/* <View style={{ height: 50, flexDirection: 'row' }}>
                     <TouchableOpacity style={{ height: 50, width: 70, justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => { this.props.navigation.dispatch(resetAction) }}>
                         <Text style={[styles.headerTitle,,{color:'blue'}]}>Home</Text>
@@ -31,7 +37,7 @@ class StepTwoScreen extends Component {
                             style={styles.icon}
                         />
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </View>
         );
     }
