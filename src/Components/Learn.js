@@ -7,6 +7,11 @@ const deviceScreen = Dimensions.get('window');
 
 // create a component
 class LearnScreen extends Component {
+    
+    componentWillMount() {
+  
+    }
+    
     static navigationOptions = {
         tabBarLabel: 'Bài tập',
         tabBarIcon: ({ tintColor }) => (
@@ -19,7 +24,7 @@ class LearnScreen extends Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                <StatusBar hidden={false} />
+                  <StatusBar hidden={true}/>
                 <TouchableOpacity style={styles.btn}
                     onPress={() => { this.props.navigation.navigate('Basic') }}
                 >

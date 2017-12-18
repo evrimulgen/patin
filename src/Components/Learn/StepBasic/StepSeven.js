@@ -15,13 +15,30 @@ class StepSevenScreen extends Component {
     static navigationOptions = {
         tabBarLabel: '7',
         title:'StepSeven',
-        headerStyle:{
-            height:30,
-            borderBottomColor:'transparent',
+        headerStyle: {
+            height: 50,
+            borderBottomColor: 'transparent',
         },
-        headerTitleStyle:{
-            alignSelf:'center'
-        }
+        headerTitleStyle: {
+            alignSelf: 'center'
+        },
+        headerLeft: <TouchableOpacity 
+        onPress={() => { alert(this.props)}}>
+            <Image
+                source={require('../img/icon_tabnav.png')}
+                style={{
+                    marginLeft:15,
+                    width: 40,
+                    height: 40,
+                }}
+            />
+        </TouchableOpacity>,
+        headerRight:<View style={{
+            width: 40,
+            height: 40,
+        }}>
+        
+    </View>
     }
     render() {
         return (

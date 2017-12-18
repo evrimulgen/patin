@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 const deviceScreen = Dimensions.get('window');
 
@@ -9,36 +9,55 @@ const deviceScreen = Dimensions.get('window');
 class StepTwoScreen extends Component {
     static navigationOptions = {
         tabBarLabel: '2',
-        title:'StepTwo',
-        headerStyle:{
-            height:30,
-            borderBottomColor:'transparent',
+        title:'Bước 2',
+        headerStyle: {
+            height: 50,
+            borderBottomColor: 'transparent',
         },
-        headerTitleStyle:{
-            alignSelf:'center'
-        }
+        headerTitleStyle: {
+            alignSelf: 'center'
+        },
+        headerLeft: <TouchableOpacity 
+        onPress={() => { alert(this.props)}}>
+            <Image
+                source={require('../img/icon_tabnav.png')}
+                style={{
+                    marginLeft:15,
+                    width: 40,
+                    height: 40,
+                }}
+            />
+        </TouchableOpacity>,
+        headerRight:<View style={{
+            width: 40,
+            height: 40,
+        }}>
+        
+    </View>
     }
     render() {
         return (
-            <View style={{flex:1}}>
-                {/* <View style={{ height: 50, flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ height: 50, width: 70, justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => { this.props.navigation.dispatch(resetAction) }}>
-                        <Text style={[styles.headerTitle,,{color:'blue'}]}>Home</Text>
-                    </TouchableOpacity>
-
-                    <View style={{ width: deviceScreen.width - 140, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={styles.headerTitle}>Step Two</Text>
-                    </View>
-                    <TouchableOpacity style={{ height: 50, width: 70, justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => { this.props.navigation.goBack() }}>
-                        <Image
-                            source={require('../img/back_icon.png')}
-                            style={styles.icon}
-                        />
-                    </TouchableOpacity>
-                </View> */}
-            </View>
+            <ScrollView style={{flex:1}}>
+                <View style={{ flex: 1, marginLeft: 10, marginRight: 10 }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center',paddingBottom:10,paddingTop:10}}>CÁCH TÉ NGÃ AN TOÀN KHI TRƯỢT PATIN</Text>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', textAlign:'center',paddingBottom:10  }} >Việc ngã trong quá trình tập luyện là điều khó tránh khỏi không chỉ đối với người mới mà ngay cả những người trượt lâu năm cũng thường xuyên xảy ra. Ở cách té ngã an toàn trong trượt patin bao gồm 5 bước cơ bản cho người mới tập luyện. Đây là nội dụng rất quan trọng, bạn hãy cố gắng thực hiện thuần thục để đảm bảo an toàn, tránh những chấn thương trong quá trình học trượt bạn nhé.</Text>
+                    {/* <Text style={{ fontSize: 14, fontWeight: 'bold', textDecorationLine: 'underline',paddingBottom:5  }} >1. Đứng dậy</Text> */}
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 1: Khụy 2 gối xuống</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 2: Hai tay để phía trước, mở rộng lòng bàn tay, cằm hướng lên.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 3: Nghiêng người về phía trước, càng gần mặt đất càng tốt.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 4: Đổ người nhẹ nhàng, chống đầu gối, dùng 2 tay là điểm tựa thứ hai.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 5: Trượt tay về phía trước (không duỗi thẳng tay).</Text>
+                    <Image
+                        source={require('../../Learn/img/b2_img1.jpg')}
+                        style={{
+                            marginLeft: 10,
+                            alignSelf:'center',
+                            width: deviceScreen.width,
+                            resizeMode:'contain'
+                        }}
+                    />
+                </View>
+            </ScrollView>
         );
     }
 }

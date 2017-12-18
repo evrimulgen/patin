@@ -58,7 +58,6 @@ const StepOneScreenStack=StackNavigator({
     StepOneS:{
         screen: StepOneScreen,
     },
-
 })
 const StepTwoScreenStack=StackNavigator({
     StepTwoS:{
@@ -93,7 +92,6 @@ const StepSevenScreenStack=StackNavigator({
 })
 
 const StepTabNav=TabNavigator({
-    
     StepOne:{
         screen:StepOneScreenStack,
   
@@ -122,13 +120,12 @@ const StepTabNav=TabNavigator({
         screen: StepSevenScreenStack,
        
     }
-
 },{
     tabBarComponent: TabBarBottom,
     initialRouteName: 'StepOne',
     tabBarPosition: 'bottom',
     //activeBackgroundColor:'red',
-    animationEnabled: false,
+    animationEnabled: true,
     swipeEnabled: true,
     tabBarOptions: {
         activeTintColor: 'blue',
@@ -166,7 +163,7 @@ const StackNav = StackNavigator({
     },
     Basic:{
         screen: StepTabNav,
-    }
+    },
 },
 {
     headerMode:'none',
