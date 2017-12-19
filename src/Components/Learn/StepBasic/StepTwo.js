@@ -1,15 +1,16 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import HeaderLeftStep from './HeaderLeft';
+
 const deviceScreen = Dimensions.get('window');
 
 
 // create a component
 class StepTwoScreen extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({navigation})=>({
         tabBarLabel: '2',
-        title:'Bước 2',
+        title:'Bài 2',
         headerStyle: {
             height: 50,
             borderBottomColor: 'transparent',
@@ -17,30 +18,20 @@ class StepTwoScreen extends Component {
         headerTitleStyle: {
             alignSelf: 'center'
         },
-        headerLeft: <TouchableOpacity 
-        onPress={() => { alert(this.props)}}>
-            <Image
-                source={require('../img/icon_tabnav.png')}
-                style={{
-                    marginLeft:15,
-                    width: 40,
-                    height: 40,
-                }}
-            />
-        </TouchableOpacity>,
+        headerLeft: <HeaderLeftStep onPress={()=>{navigation.navigate('Home') }}/>,
         headerRight:<View style={{
             width: 40,
             height: 40,
         }}>
         
     </View>
-    }
+    })
     render() {
         return (
             <ScrollView style={{flex:1}}>
                 <View style={{ flex: 1, marginLeft: 10, marginRight: 10 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center',paddingBottom:10,paddingTop:10}}>CÁCH TÉ NGÃ AN TOÀN KHI TRƯỢT PATIN</Text>
-                    <Text style={{ fontSize: 14, fontWeight: 'bold', textAlign:'center',paddingBottom:10  }} >Việc ngã trong quá trình tập luyện là điều khó tránh khỏi không chỉ đối với người mới mà ngay cả những người trượt lâu năm cũng thường xuyên xảy ra. Ở cách té ngã an toàn trong trượt patin bao gồm 5 bước cơ bản cho người mới tập luyện. Đây là nội dụng rất quan trọng, bạn hãy cố gắng thực hiện thuần thục để đảm bảo an toàn, tránh những chấn thương trong quá trình học trượt bạn nhé.</Text>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', textAlign:'center',paddingBottom:10 , textAlign:'justify' }} >Việc ngã trong quá trình tập luyện là điều khó tránh khỏi không chỉ đối với người mới mà ngay cả những người trượt lâu năm cũng thường xuyên xảy ra. Ở cách té ngã an toàn trong trượt patin bao gồm 5 bước cơ bản cho người mới tập luyện. Đây là nội dụng rất quan trọng, bạn hãy cố gắng thực hiện thuần thục để đảm bảo an toàn, tránh những chấn thương trong quá trình học trượt bạn nhé.</Text>
                     {/* <Text style={{ fontSize: 14, fontWeight: 'bold', textDecorationLine: 'underline',paddingBottom:5  }} >1. Đứng dậy</Text> */}
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 1: Khụy 2 gối xuống</Text>
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 2: Hai tay để phía trước, mở rộng lòng bàn tay, cằm hướng lên.</Text>

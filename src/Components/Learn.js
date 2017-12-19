@@ -23,8 +23,8 @@ class LearnScreen extends Component {
     };
     render() {
         return (
-            <ScrollView style={styles.container}>
-                  <StatusBar hidden={true}/>
+            <ScrollView  style={styles.container}>
+                  <StatusBar style={{backgroundColor:'transparent'}} hidden={false}/>
                 <TouchableOpacity style={styles.btn}
                     onPress={() => { this.props.navigation.navigate('Basic') }}
                 >
@@ -91,6 +91,7 @@ class LearnScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop:20,
         //backgroundColor: '#2c3e50',
     },
     btn: {

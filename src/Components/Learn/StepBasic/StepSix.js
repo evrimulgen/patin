@@ -1,20 +1,16 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions,ScrollView } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import HeaderLeftStep from './HeaderLeft';
+
 const deviceScreen = Dimensions.get('window');
-const resetAction = NavigationActions.reset({
-    index: 0,
-    actions: [
-      NavigationActions.navigate({ routeName: 'Home'})
-    ]
-  })
 
 // create a component
 class StepSixScreen extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({navigation})=>({
         tabBarLabel: '6',
-        title:'StepSix',
+        title:'Bài 6',
         headerStyle: {
             height: 50,
             borderBottomColor: 'transparent',
@@ -22,29 +18,37 @@ class StepSixScreen extends Component {
         headerTitleStyle: {
             alignSelf: 'center'
         },
-        headerLeft: <TouchableOpacity 
-        onPress={() => { alert(this.props)}}>
-            <Image
-                source={require('../img/icon_tabnav.png')}
-                style={{
-                    marginLeft:15,
-                    width: 40,
-                    height: 40,
-                }}
-            />
-        </TouchableOpacity>,
+        headerLeft: <HeaderLeftStep onPress={()=>{navigation.navigate('Home') }}/>,
         headerRight:<View style={{
             width: 40,
             height: 40,
         }}>
         
     </View>
-    }
+    })
     render() {
         return (
-            <View style={{flex:1}}>
-                
-            </View>
+            <ScrollView style={{flex:1}}>
+                <View style={{ flex: 1, marginLeft: 10, marginRight: 10 }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center',paddingBottom:10,paddingTop:10}}>CÁCH CHUYỂN HƯỚNG</Text>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', textAlign:'center',paddingBottom:10 , textAlign:'justify' }} >1. Scootering (1 chân phía trước)</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5,textDecorationLine: 'underline'  }}>     Chuyển hướng Scootering qua phải:</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Dồn trọng tâm sang chân phải để chuyển hướng sang phải.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Khụy chân trái, đưa ra ngoài với tư thế dùng cạnh trong.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Xoay toàn bộ cơ thể qua phải</Text>
+                    <Image
+                        source={require('../../Learn/img/b6_img1.jpg')}
+                        style={{
+                            marginLeft: 10,
+                            alignSelf:'center',
+                            width: deviceScreen.width,
+                            resizeMode:'contain'
+                        }}
+                    />
+                    <Text style={{ fontSize: 13, paddingBottom:5, textAlign:'center'  }}>Cách chuyển hướng qua phải</Text>
+                    
+                </View>
+            </ScrollView>
         );
     }
 }

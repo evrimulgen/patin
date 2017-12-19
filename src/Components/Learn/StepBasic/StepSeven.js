@@ -2,17 +2,13 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import HeaderLeftStep from './HeaderLeft';
+
 const deviceScreen = Dimensions.get('window');
-const resetAction = NavigationActions.reset({
-    index: 0,
-    actions: [
-      NavigationActions.navigate({ routeName: 'Home'})
-    ]
-  })
 
 // create a component
 class StepSevenScreen extends Component {
-    static navigationOptions = {
+    static navigationOptions =({navigation})=>({
         tabBarLabel: '7',
         title:'StepSeven',
         headerStyle: {
@@ -22,24 +18,14 @@ class StepSevenScreen extends Component {
         headerTitleStyle: {
             alignSelf: 'center'
         },
-        headerLeft: <TouchableOpacity 
-        onPress={() => { alert(this.props)}}>
-            <Image
-                source={require('../img/icon_tabnav.png')}
-                style={{
-                    marginLeft:15,
-                    width: 40,
-                    height: 40,
-                }}
-            />
-        </TouchableOpacity>,
+        headerLeft: <HeaderLeftStep onPress={()=>{navigation.navigate('Home') }}/>,
         headerRight:<View style={{
             width: 40,
             height: 40,
         }}>
         
     </View>
-    }
+    })
     render() {
         return (
             <View style={{flex:1}}>

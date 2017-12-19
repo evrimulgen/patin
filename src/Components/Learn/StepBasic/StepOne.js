@@ -2,10 +2,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import StackNav from '../../Route';
-import { NavigationActions } from 'react-navigation';
+import HeaderLeftStep from './HeaderLeft';
 
 const deviceScreen = Dimensions.get('window');
-const ThisScreen= Dimensions.get('screen');
 
 // create a component
 class StepOneScreen extends Component {
@@ -13,42 +12,27 @@ class StepOneScreen extends Component {
         super(props);
     }
 
-    static navigationOptions = {
+    static navigationOptions = ({navigation}) =>({
         tabBarLabel: '1',
-        title: 'Bước 1',
-        headerStyle: {
-            height: 50,
-            borderBottomColor: 'transparent',
-        },
+        title: 'Bài 1',
+        // headerStyle: {
+        //     height: 50,
+        //     borderBottomColor: 'transparent',
+        // },
         headerTitleStyle: {
             alignSelf: 'center',
         },
-        headerLeft: <TouchableOpacity
-            onPress={() => { alert(this.props) }}>
-            <Image
-                source={require('../img/icon_tabnav.png')}
-                style={{
-                    marginLeft: 15,
-                    width: 40,
-                    height: 40,
-                }}
-            />
-        </TouchableOpacity>,
+        headerLeft: <HeaderLeftStep onPress={()=>{navigation.navigate('Home') }}/>,
         headerRight: <View style={{
             width: 40,
             height: 40,
         }}>
 
         </View>
-    }
+    })
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-
-                <TouchableOpacity
-                    onPress={() => { this.props.navigation.navigate('Home') }}>
-                    <Text>aaaa</Text>
-                </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 10, marginRight: 10 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center',paddingBottom:10,paddingTop:10 }}>CÁCH ĐỨNG DẬY VÀ NGỒI XUỐNG</Text>
                     <Text style={{ fontSize: 14, fontWeight: 'bold', textDecorationLine: 'underline',paddingBottom:5  }} >1. Đứng dậy</Text>
@@ -68,7 +52,7 @@ class StepOneScreen extends Component {
                     <Text style={{ fontSize: 14, fontWeight: 'bold', textDecorationLine: 'underline',paddingBottom:5  }} >2. Ngồi xuống</Text>
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 1: Từ tư thế đứng với 2 tay đặt trên đầu gối, hạ thấp trọng tâm hết mức có thể. Ở bước này, cố gắng điều hướng giữ ổn định giày trượt, không để giày bị trôi hay di chuyển.</Text>
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 2: Đặt 2 tay xuống mặt đất và tiếp tục hạ thấp trọng tâm.</Text>
-                    <Text style={{ fontSize: 13, paddingBottom:5 }}>     Bước 3: Đưa chân trái về tư thế quỳ gối.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 3: Đưa chân trái về tư thế quỳ gối.</Text>
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     Bước 4: Tiếp tục đưa chân phải về tư thế quỳ gối và ổn định tư thế.</Text>
                     <Text style={{ fontSize: 14, fontWeight: 'bold', textAlign:'center' }} >Phần hướng dẫn cách ngồi xuống trong patin là thực hiện ngược lại so với "bước 1: đứng dậy". Các bạn chú ý để làm đúng nhé.</Text>
                 </View>
