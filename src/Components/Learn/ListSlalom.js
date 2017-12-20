@@ -18,7 +18,7 @@ class ListSlalomScreen extends Component {
     
     componentWillMount() {
 
-        fetch(CONFIG.API_URL + "/skill/slalom")
+        fetch(CONFIG.API_URL + "/skill/1")
         .then((response) => response.json())
         .then((responseJson) => {
             this.setState({
@@ -33,7 +33,7 @@ class ListSlalomScreen extends Component {
     render() {
         
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,marginTop:10}}>
                 <View style={{ height: 50, flexDirection: 'row' }}>
                     <TouchableOpacity style={{ height: 50, width: 50, justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => { this.props.navigation.goBack() }}>
@@ -44,7 +44,7 @@ class ListSlalomScreen extends Component {
                     </TouchableOpacity>
 
                     <View style={{ width: deviceScreen.width - 100, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={styles.headerTitle} >SKILL</Text>
+                        <Text style={styles.headerTitle} >Các bài tập Slalom</Text>
                     </View>
                     <TouchableOpacity style={{ height: 50, width: 50, justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => { this.props.navigation.goBack() }}>
@@ -63,13 +63,17 @@ class ListSlalomScreen extends Component {
                         renderItem={({ item }) => 
                             <View>
                                 
-                                <View style={{ height: 10 }} ></View>
+                                <View style={{ borderBottomWidth:0.5,marginRight:50,marginLeft:50,borderColor:'gray',borderStyle:'solid'}} ></View>
                                 
-                                <TouchableOpacity style={{borderWidth: 2, borderRadius: 20, borderColor: 'white',backgroundColor:'#4775d1'}}  
+                                <TouchableOpacity  style={{paddingTop:5,paddingBottom:5,flexDirection:'row'}} 
                                  >
-                                
-                                    <Text style={{  color: 'white', fontSize: 20, left:20,backgroundColor:'transparent'}}>{item.name}</Text>
-                                    <Text style={{  color: 'white', fontSize: 20, textAlign:'right',right:20,backgroundColor:'transparent' }}>{item.level}</Text>
+                                    {item.level === 1 ? <Image source={require('./img/wheel1.png')} style={styles.iconlist}/> : null }
+                                    {item.level === 2 ? <Image source={require('./img/wheel2.png')} style={styles.iconlist}/> : null }
+                                    {item.level === 3 ? <Image source={require('./img/wheel3.png')} style={styles.iconlist}/> : null }
+                                    {item.level === 4 ? <Image source={require('./img/wheel4.png')} style={styles.iconlist}/> : null }
+                                    {item.level === 5 ? <Image source={require('./img/wheel5.png')} style={styles.iconlist}/> : null }
+                                    <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}>{item.name}</Text>
+                                    {/* <Text style={{   fontSize: 14, textAlign:'right',right:15,backgroundColor:'transparent' }}>{item.lv}</Text> */}
                                 </TouchableOpacity>
                             </View>
                         }                      
@@ -92,8 +96,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#2c3e50',
     },
     icon: {
-        width: 30,
-        height: 30,
+        width: 26,
+        height: 26,
+    },
+    iconlist: {
+        width: 40,
+        height: 40,
     },
     headerTitle: {
         fontSize: 20,
