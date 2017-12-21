@@ -73,6 +73,7 @@ class ListSlalomScreen extends Component {
                                     {item.level === 4 ? <Image source={require('./img/wheel4.png')} style={styles.iconlist}/> : null }
                                     {item.level === 5 ? <Image source={require('./img/wheel5.png')} style={styles.iconlist}/> : null }
                                     <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}>{item.name}</Text>
+                                    <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}> {item.url}</Text>
                                     {/* <Text style={{   fontSize: 14, textAlign:'right',right:15,backgroundColor:'transparent' }}>{item.lv}</Text> */}
                                 </TouchableOpacity>
                             </View>

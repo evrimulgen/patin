@@ -16,7 +16,7 @@ class ProfileScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Profile</Text>
+                <Text>Coming Soon</Text>
             </View>
         );
     }
