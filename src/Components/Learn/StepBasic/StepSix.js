@@ -35,7 +35,7 @@ class StepSixScreen extends Component {
                     <Text style={{ fontSize: 13, paddingBottom:5,textDecorationLine: 'underline'  }}>     Chuyển hướng Scootering qua phải:</Text>
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Dồn trọng tâm sang chân phải để chuyển hướng sang phải.</Text>
                     <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Khụy chân trái, đưa ra ngoài với tư thế dùng cạnh trong.</Text>
-                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Xoay toàn bộ cơ thể qua phải</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Xoay toàn bộ cơ thể qua phải.</Text>
                     <Image
                         source={require('../../Learn/img/b6_img1.jpg')}
                         style={{
@@ -45,7 +45,40 @@ class StepSixScreen extends Component {
                             resizeMode:'contain'
                         }}
                     />
-                    <Text style={{ fontSize: 13, paddingBottom:5, textAlign:'center'  }}>Cách chuyển hướng qua phải</Text>
+                  
+                    
+                    <Text style={{ fontSize: 13, paddingBottom:5,textDecorationLine: 'underline'  }}>     Chuyển hướng Scootering qua trái:</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Dồn trọng tâm sang chân phải để chuyển hướng sang trái.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Khụy chân phải, đưa ra ngoài với tư thế dùng cạnh trong.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Xoay toàn bộ cơ thể qua trái.</Text>
+                    <Image
+                        source={require('../../Learn/img/b6_img2.jpg')}
+                        style={{
+                            marginLeft: 10,
+                            alignSelf:'center',
+                            width: deviceScreen.width,
+                            resizeMode:'contain'
+                        }}
+                    />
+                    <Text style={{ fontSize: 13, paddingBottom:5, textAlign:'center'  }}>Cách chuyển hướng qua trái</Text>
+
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', textAlign:'center',paddingBottom:10 , textAlign:'justify' }} >2. Parallel (song song):</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5,textDecorationLine: 'underline'  }}>     Chuyển hướng với tư thế 2 chân song song</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - 2 chân trượt song song.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Đưa chân trái lên phía trước khi muốn quay trái; ngược lại với chân bên phải.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Phần người phía trên xoay theo hướng muốn xoay.</Text>
+                    <Text style={{ fontSize: 13, paddingBottom:5  }}>     - Dồn trọng tâm vào hướng muốn xoay, 2 chân vẫn song song.</Text>
+                    <Image
+                        source={require('../../Learn/img/b6_img3.jpg')}
+                        style={{
+                            marginLeft: 10,
+                            alignSelf:'center',
+                            width: deviceScreen.width,
+                            resizeMode:'contain'
+                        }}
+                    />
+                    <Text style={{ fontSize: 13, paddingBottom:5, textAlign:'center'  }}>Cách Parallel song song</Text>
+
                     
                 </View>
             </ScrollView>

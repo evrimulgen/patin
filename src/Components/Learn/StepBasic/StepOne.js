@@ -4,7 +4,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView
 import StackNav from '../../Route';
 import HeaderLeftStep from './HeaderLeft';
 
+
 const deviceScreen = Dimensions.get('window');
+
 
 // create a component
 class StepOneScreen extends Component {
@@ -22,7 +24,7 @@ class StepOneScreen extends Component {
         headerTitleStyle: {
             alignSelf: 'center',
         },
-        headerLeft: <HeaderLeftStep onPress={()=>{navigation.navigate('Home') }}/>,
+        headerLeft: <HeaderLeftStep onPress={()=>{navigation.navigate('Home')}}/>,
         headerRight: <View style={{
             width: 40,
             height: 40,

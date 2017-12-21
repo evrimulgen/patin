@@ -9,6 +9,7 @@ import {
 import LearnScreen from './Learn';
 import ProfileScreen from './Profile';
 import ListSlalomScreen from './Learn/ListSlalom';
+import ListSlideScreen from './Learn/ListSlide';
 import BasicScreen from './Learn/Basic';
 
 import StepOneScreen from './Learn/StepBasic/StepOne';
@@ -160,6 +161,9 @@ const StackNav = StackNavigator({
     },
     ListSlalom: {
         screen: ListSlalomScreen,
+    },
+    ListSlide:{
+        screen: ListSlideScreen
     },
     Basic:{
         screen: StepTabNav,

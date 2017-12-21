@@ -48,9 +48,10 @@ class LearnScreen extends Component {
                         <Text style={styles.title}>Slalom</Text>
                     </View>
                 </TouchableOpacity>
-                <View style={{ height: 5 }}></View>
+                
+
                 <TouchableOpacity style={styles.btn}
-                    onPress={() => { this.props.navigation.navigate('List') }}
+                    onPress={() => { this.props.navigation.navigate('ListSlide') }}
                 >
                     <Image
                         source={require('../Images/Learn/slide_bg.jpg')}
@@ -58,26 +59,6 @@ class LearnScreen extends Component {
                     />
                     <View style={styles.titlecontent}>
                         <Text style={styles.title}>Slide</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.btn}>
-                    <Image
-                        source={require('../Images/Learn/basic_bg.jpg')}
-                        style={styles.img}
-                    />
-                    <View style={styles.titlecontent}>
-                        <Text style={styles.title}>Cơ bản</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.btn}>
-                    <Image
-                        source={require('../Images/Learn/basic_bg.jpg')}
-                        style={styles.img}
-                    />
-                    <View style={styles.titlecontent}>
-                        <Text style={styles.title}>Cơ bản</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -97,7 +78,9 @@ const styles = StyleSheet.create({
     btn: {
         width: undefined,
         height: 200,
-        margin: 15,
+        marginLeft: 15,
+        marginRight:15,
+        marginBottom: 10,
         borderRadius: 25,
         backgroundColor: 'transparent',
     },
