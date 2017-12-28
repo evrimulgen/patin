@@ -20,6 +20,18 @@ import StepFiveScreen from './Learn/StepBasic/StepFive';
 import StepSixScreen from './Learn/StepBasic/StepSix';
 import StepSevenScreen from './Learn/StepBasic/StepSeven';
 
+import VeryEasySlalomScreen from './Learn/ListSlalom/VeryEasy';
+import EasySlalomScreen from './Learn/ListSlalom/Easy';
+import MediumSlalomScreen from './Learn/ListSlalom/Medium';
+import HardSlalomScreen from './Learn/ListSlalom/Hard';
+import VeryHardSlalomScreen from './Learn/ListSlalom/VeryHard';
+
+import VeryEasySlideScreen from './Learn/ListSlide/VeryEasy';
+import EasySlideScreen from './Learn/ListSlide/Easy';
+import MediumSlideScreen from './Learn/ListSlide/Medium';
+import HardSlideScreen from './Learn/ListSlide/Hard';
+import VeryHardSlideScreen from './Learn/ListSlide/VeryHard';
+
 const TabNav = TabNavigator({
     Learn: {
         screen: LearnScreen,
@@ -153,17 +165,109 @@ const StepTabNav=TabNavigator({
     }
 })
 
+const SkillSlalomTabNav=TabNavigator({
+    VeryEasySlalom:{
+        screen: VeryEasySlalomScreen,  
+    },
+    EasySlalom:{
+        screen: EasySlalomScreen,
+    },
+    MediumSlalom:{
+        screen: MediumSlalomScreen,
+    },
+    HardSlalom:{
+        screen: HardSlalomScreen,
+    },
+    VeryHardSlalom:{
+        screen: VeryHardSlalomScreen,
+    }
+},{
+    tabBarComponent: TabBarBottom,
+    initialRouteName: 'VeryEasySlalom',
+    tabBarPosition: 'bottom',
+    animationEnabled: true,
+    swipeEnabled: true,
+    tabBarOptions: {
+        activeTintColor: 'blue',
+        inactiveTintColor: '#666666',
+       
+        //android options
+        showIcon: true,
+        upperCaseLabel: false,
+        style: {
+            height:30,
+            borderTopColor: 'transparent',
+            backgroundColor: '#f2f2f2',
+            flexGrow: 1,
 
+        },
+        labelStyle: {
+            fontSize: 12,
+            fontWeight:'bold',
+        },
+        iconStyle: {
+            width: 26,
+            height: 26,
+        }
+    }
+})
+
+const SkillSlideTabNav=TabNavigator({
+    VeryEasySlide:{
+        screen: VeryEasySlideScreen,
+       
+    },
+    EasySlide:{
+        screen: EasySlideScreen,
+    },
+    MediumSlide:{
+        screen: MediumSlideScreen,
+    },
+    HardSlide:{
+        screen: HardSlideScreen,
+    },
+    VeryHardSlide:{
+        screen: VeryHardSlideScreen,
+    }
+},{
+    tabBarComponent: TabBarBottom,
+    initialRouteName: 'VeryEasySlide',
+    tabBarPosition: 'bottom',animationEnabled: true,
+    swipeEnabled: true,
+    tabBarOptions: {
+        activeTintColor: 'blue',
+        inactiveTintColor: '#666666',
+       
+        //android options
+        showIcon: true,
+        upperCaseLabel: false,
+        style: {
+            height:30,
+            borderTopColor: 'transparent',
+            backgroundColor: '#f2f2f2',
+            flexGrow: 1,
+
+        },
+        labelStyle: {
+            fontSize: 12,
+            fontWeight:'bold',
+        },
+        iconStyle: {
+            width: 26,
+            height: 26,
+        }
+    }
+})
 
 const StackNav = StackNavigator({
     Home: {
         screen: TabNav,
     },
     ListSlalom: {
-        screen: ListSlalomScreen,
+        screen: SkillSlalomTabNav,
     },
     ListSlide:{
-        screen: ListSlideScreen
+        screen: SkillSlideTabNav,
     },
     Basic:{
         screen: StepTabNav,
