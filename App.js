@@ -19,15 +19,43 @@ export default class App extends Component {
     );
   }
 }
-const defaultState={ 
-  value: 0,
+const defaultState = {
+  VeryEasySlalom: [],
+  EasySlalom: [],
+  MediumSlalom: [],
+  HardSlalom: [],
+  VeryHardSlalom: [],
+  VeryEasySlide: [],
+  EasySlide: [],
+  MediumSlide: [],
+  HardSlide: [],
+  VeryHardSlide: [],
   loginStatus: false,
 }
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'UP':
-      return { ...state, value: state.value + 1 }
+    case 'GET_DATA_VERY_EASY_SLALOM':
+      return { ...state, VeryEasySlalom: action.data }
+    case 'GET_DATA_EASY_SLALOM':
+      return { ...state, EasySlalom: action.data }
+    case 'GET_DATA_MEDIUM_SLALOM':
+      return { ...state, MediumSlalom: action.data }
+    case 'GET_DATA_HARD_SLALOM':
+      return { ...state, HardSlalom: action.data }
+    case 'GET_DATA_VERY_HARD_SLALOM':
+      return { ...state, VeryHardSlalom: action.data }
+    case 'GET_DATA_VERY_EASY_SLIDE':
+      return { ...state, VeryEasySlide: action.data }
+    case 'GET_DATA_EASY_SLIDE':
+      return { ...state, EasySlide: action.data }
+    case 'GET_DATA_MEDIUM_SLIDE':
+      return { ...state, MediumSlide: action.data }
+    case 'GET_DATA_HARD_SLIDE':
+      return { ...state, HardSlide: action.data }
+    case 'GET_DATA_VERY_HARD_SLIDE':
+      return { ...state, VeryHardSlide: action.data }
+
     default:
       return state
   }

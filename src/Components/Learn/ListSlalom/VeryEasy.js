@@ -2,24 +2,27 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView} from 'react-native';
 import CONFIG from '../../Config';
+import { connect } from "react-redux";
+import axios from 'react-native-axios';
+
 const deviceScreen = Dimensions.get('window');
 // create a component
 class VeryEasySlalomScreen extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            data: [],
-        }
+        // this.state = {
+        //     data: [],
+        // }
     }
     componentWillMount() {
 
-        fetch(CONFIG.API_URL + "/skill/1/1")
-        .then((response) => response.json())
-        .then((responseJson) => {
-            this.setState({
-             data:responseJson})
-            
-          })
+        axios.get(CONFIG.API_URL + "/skill/1/1")
+        .then((response) => {
+            this.props.dispatch({
+                type: "GET_DATA_VERY_EASY_SLALOM",
+                data: response.data,
+            })
+        })
           .catch((error) => {
               console.error(error);
             });
@@ -56,7 +59,7 @@ class VeryEasySlalomScreen extends Component {
                     <ScrollView style={{ backgroundColor: 'transparent', marginLeft: 10, marginRight: 10 }}>
                     <FlatList
                     
-                        data={this.state.data}
+                        data={this.props.VeryEasySlalom}
                         renderItem={({ item }) => 
                             <View>
                                 
@@ -102,6 +105,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-
+function mapStateToProps(state) {
+    return {
+        VeryEasySlalom: state.VeryEasySlalom,
+      
+    };
+  }
 //make this component available to the app
-export default VeryEasySlalomScreen;
+export default connect(mapStateToProps)(VeryEasySlalomScreen);

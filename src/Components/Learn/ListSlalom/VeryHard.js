@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView} from 'react-native';
 import CONFIG from '../../Config';
+import axios from 'react-native-axios';
+import { connect } from "react-redux";
 const deviceScreen = Dimensions.get('window');
 // create a component
 class VeryHardSlalomScreen extends Component {
@@ -12,14 +14,13 @@ class VeryHardSlalomScreen extends Component {
         }
     }
     componentWillMount() {
-
-        fetch(CONFIG.API_URL + "/skill/1/5")
-        .then((response) => response.json())
-        .then((responseJson) => {
-            this.setState({
-             data:responseJson})
-            
-          })
+        axios.get(CONFIG.API_URL + "/skill/1/5")
+        .then((response) => {
+            this.props.dispatch({
+                type: "GET_DATA_VERY_HARD_SLALOM",
+                data: response.data,
+            })
+        })
           .catch((error) => {
               console.error(error);
             });
@@ -40,7 +41,7 @@ class VeryHardSlalomScreen extends Component {
                     <TouchableOpacity style={{ height: 50, width: 50, justifyContent: 'center', alignItems: 'center' }}
                    onPress={() => { this.props.navigation.navigate('Home') }}>
                         <Image
-                            source={require('../img/back_icon.png')}
+                            source={require('../img/icon_tabnav.png')}
                             style={styles.icon}
                         />
                     </TouchableOpacity>
@@ -61,7 +62,7 @@ class VeryHardSlalomScreen extends Component {
                     <ScrollView style={{ backgroundColor: 'transparent', marginLeft: 10, marginRight: 10 }}>
                     <FlatList
                     
-                        data={this.state.data}
+                        data={this.props.VeryHardSlalom}
                         renderItem={({ item }) => 
                             <View>
                                 
@@ -107,6 +108,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-
+function mapStateToProps(state) {
+    return{
+        VeryHardSlalom: state.VeryHardSlalom,
+    }
+}
 //make this component available to the app
-export default VeryHardSlalomScreen;
+export default connect(mapStateToProps)(VeryHardSlalomScreen);

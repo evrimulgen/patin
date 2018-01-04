@@ -10,7 +10,7 @@ const deviceScreen = Dimensions.get('window');
 class StepSevenScreen extends Component {
     static navigationOptions =({navigation})=>({
         tabBarLabel: '7',
-        title:'StepSeven',
+        title:'Bài 7',
         headerStyle: {
             height: 50,
             borderBottomColor: 'transparent',

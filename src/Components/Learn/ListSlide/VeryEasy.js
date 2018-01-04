@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image, Dimensions, ScrollView } from 'react-native';
 import CONFIG from '../../Config';
+import axios from 'react-native-axios';
+import { connect } from "react-redux";
 const deviceScreen = Dimensions.get('window');
 // create a component
 class VeryEasySlideScreen extends Component {
@@ -12,20 +14,17 @@ class VeryEasySlideScreen extends Component {
         }
     }
     componentWillMount() {
-
-        fetch(CONFIG.API_URL + "/skill/2/1")
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    data: responseJson
-                })
-
+        axios.get(CONFIG.API_URL + "/skill/2/1")
+        .then((response) => {
+            this.props.dispatch({
+                type: "GET_DATA_VERY_EASY_SLIDE",
+                data: response.data,
             })
-            .catch((error) => {
-                console.error(error);
+        })
+          .catch((error) => {
+              console.error(error);
             });
     }
-
     static navigationOptions = ({ navigation }) => ({
         tabBarLabel: 'Cực dễ',
         // tabBarIcon: ({ tintColor }) => (
@@ -57,7 +56,7 @@ class VeryEasySlideScreen extends Component {
                     <ScrollView style={{ backgroundColor: 'transparent', marginLeft: 10, marginRight: 10 }}>
                         <FlatList
 
-                            data={this.state.data}
+                            data={this.props.VeryEasySlide}
                             renderItem={({ item }) =>
                                 <View>
 
@@ -103,6 +102,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-
+function mapStateToProps(state) {
+    return {
+        VeryEasySlide: state.VeryEasySlide,
+      
+    };
+  }
 //make this component available to the app
-export default VeryEasySlideScreen;
+export default connect(mapStateToProps)(VeryEasySlideScreen);

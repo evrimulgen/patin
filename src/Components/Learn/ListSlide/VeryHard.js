@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image, Dimensions, ScrollView } from 'react-native';
 import CONFIG from '../../Config';
+import axios from 'react-native-axios';
+import { connect } from "react-redux";
 const deviceScreen = Dimensions.get('window');
 // create a component
 class VeryHardSlideScreen extends Component {
@@ -12,17 +14,15 @@ class VeryHardSlideScreen extends Component {
         }
     }
     componentWillMount() {
-
-        fetch(CONFIG.API_URL + "/skill/2/5")
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    data: responseJson
-                })
-
+        axios.get(CONFIG.API_URL + "/skill/2/5")
+        .then((response) => {
+            this.props.dispatch({
+                type: "GET_DATA_VERY_HARD_SLIDE",
+                data: response.data,
             })
-            .catch((error) => {
-                console.error(error);
+        })
+          .catch((error) => {
+              console.error(error);
             });
     }
     static navigationOptions = ({ navigation }) => ({
@@ -62,7 +62,7 @@ class VeryHardSlideScreen extends Component {
                     <ScrollView style={{ backgroundColor: 'transparent', marginLeft: 10, marginRight: 10 }}>
                         <FlatList
 
-                            data={this.state.data}
+                            data={this.props.VeryHardSlide}
                             renderItem={({ item }) =>
                                 <View>
 
@@ -108,6 +108,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-
+function mapStateToProps(state) {
+    return{
+        VeryHardSlide: state.VeryHardSlide,
+    }
+}
 //make this component available to the app
-export default VeryHardSlideScreen;
+export default connect(mapStateToProps)(VeryHardSlideScreen);

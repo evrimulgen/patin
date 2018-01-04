@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView} from 'react-native';
 import CONFIG from '../../Config';
+import axios from 'react-native-axios';
+import { connect } from "react-redux";
 const deviceScreen = Dimensions.get('window');
 
 
@@ -14,14 +16,13 @@ class HardSlideScreen extends Component {
         }
     }
     componentWillMount() {
-
-        fetch(CONFIG.API_URL + "/skill/2/4")
-        .then((response) => response.json())
-        .then((responseJson) => {
-            this.setState({
-             data:responseJson})
-            
-          })
+        axios.get(CONFIG.API_URL + "/skill/2/4")
+        .then((response) => {
+            this.props.dispatch({
+                type: "GET_DATA_HARD_SLIDE",
+                data: response.data,
+            })
+        })
           .catch((error) => {
               console.error(error);
             });
@@ -63,7 +64,7 @@ class HardSlideScreen extends Component {
                     <ScrollView style={{ backgroundColor: 'transparent', marginLeft: 10, marginRight: 10 }}>
                     <FlatList
                     
-                        data={this.state.data}
+                        data={this.props.HardSlide}
                         renderItem={({ item }) => 
                             <View>
                                 
@@ -109,6 +110,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-
+function mapStateToProps(state) {
+    return {
+    HardSlide: state.HardSlide,
+    }
+}
 //make this component available to the app
-export default HardSlideScreen;
+export default connect(mapStateToProps)(HardSlideScreen);
