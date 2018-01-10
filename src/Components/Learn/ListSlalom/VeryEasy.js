@@ -1,13 +1,14 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView} from 'react-native';
+import { View, Animated, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView} from 'react-native';
 import CONFIG from '../../Config';
 import { connect } from "react-redux";
 import axios from 'react-native-axios';
+import VideoScreen from '../Video';
 
 const deviceScreen = Dimensions.get('window');
 // create a component
-class VeryEasySlalomScreen extends Component {
+class VeryEasySlalomScreen extends Component { 
     constructor(props){
         super(props);
         // this.state = {
@@ -56,6 +57,7 @@ class VeryEasySlalomScreen extends Component {
                 </View>
                 
                 <View style={{flex:1}}>
+                
                     <ScrollView style={{ backgroundColor: 'transparent', marginLeft: 10, marginRight: 10 }}>
                     <FlatList
                     
@@ -66,12 +68,14 @@ class VeryEasySlalomScreen extends Component {
                                 <View style={{ borderBottomWidth:0.5,marginRight:50,marginLeft:50,borderColor:'gray',borderStyle:'solid'}} ></View>
                                 
                                 <TouchableOpacity  style={{paddingTop:5,paddingBottom:5,flexDirection:'row'}} 
+                                onPress={()=>{  }}
                                  >
                                     <Image source={require('../img/wheel1.png')} style={styles.iconlist}/>
                                     <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}>{item.name}</Text>
                                     <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}> {item.url}</Text>
                                     {/* <Text style={{   fontSize: 14, textAlign:'right',right:15,backgroundColor:'transparent' }}>{item.lv}</Text> */}
                                 </TouchableOpacity>
+                             
                             </View>
                         }                      
                         keyExtractor={item => item.id}
