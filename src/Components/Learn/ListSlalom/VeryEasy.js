@@ -25,7 +25,7 @@ class VeryEasySlalomScreen extends Component {
          {Platform.OS==='android' ?
          YouTubeStandaloneAndroid.playVideo({
             apiKey: 'AIzaSyBJGlWw5ceWMs2z692aDTcyfwvyHKUQ_CI',     // Your YouTube Developer API Key
-            videoId: {url},     // YouTube video ID
+            videoId: url,     // YouTube video ID
             autoplay: true,             // Autoplay the video
            
           })
