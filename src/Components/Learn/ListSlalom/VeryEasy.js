@@ -1,11 +1,11 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Animated, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView, Platform} from 'react-native';
+import { Alert,View, Animated, Text, StyleSheet ,TouchableOpacity,FlatList,Image,Dimensions,ScrollView, Platform} from 'react-native';
 import CONFIG from '../../Config';
 import { connect } from "react-redux";
 import axios from 'react-native-axios';
-import VideoScreen from '../Video';
-import Youtube, {YouTubeStandaloneIOS, YouTubeStandaloneAndroid} from 'react-native-youtube';
+import openVideo from '../OpenVideo';
+import {YouTubeStandaloneIOS, YouTubeStandaloneAndroid} from 'react-native-youtube';
 
 const deviceScreen = Dimensions.get('window');
 // create a component
@@ -16,23 +16,23 @@ class VeryEasySlalomScreen extends Component {
         //     data: [],
         // }
     }
-    _openYoutube(url){
-        {Platform.OS==='ios' ?
-        YouTubeStandaloneIOS.playVideo(url)
-                      .then(() => console.log('iOS Standalone Player Finished'))
-                      .catch(errorMessage => console.error(errorMessage)) : null
-                    }
-         {Platform.OS==='android' ?
-         YouTubeStandaloneAndroid.playVideo({
-            apiKey: 'AIzaSyBJGlWw5ceWMs2z692aDTcyfwvyHKUQ_CI',     // Your YouTube Developer API Key
-            videoId: url,     // YouTube video ID
-            autoplay: true,             // Autoplay the video
+    // _openYoutube(url){
+    //     {Platform.OS==='ios' ?
+    //     YouTubeStandaloneIOS.playVideo(url)
+    //                   .then(() => console.log('iOS Standalone Player Finished'))
+    //                   .catch(errorMessage => console.error(errorMessage)) : null
+    //                 }
+    //      {Platform.OS==='android' ?
+    //      YouTubeStandaloneAndroid.playVideo({
+    //         apiKey: 'AIzaSyBJGlWw5ceWMs2z692aDTcyfwvyHKUQ_CI',     // Your YouTube Developer API Key
+    //         videoId: url,     // YouTube video ID
+    //         autoplay: true,             // Autoplay the video
            
-          })
-            .then(() => console.log('Standalone Player Exited'))
-            .catch(errorMessage => console.error(errorMessage)):null
-        }
-    }
+    //       })
+    //         .then(() => console.log('Standalone Player Exited'))
+    //         .catch(errorMessage => console.error(errorMessage)):null
+    //     }
+    // }
 
     componentWillMount() {
 
@@ -87,11 +87,10 @@ class VeryEasySlalomScreen extends Component {
                                 <View style={{ borderBottomWidth:0.5,marginRight:50,marginLeft:50,borderColor:'gray',borderStyle:'solid'}} ></View>
                                 
                                 <TouchableOpacity  style={{paddingTop:5,paddingBottom:5,flexDirection:'row'}} 
-                                onPress={()=>{ this._openYoutube(item.url) }}
-                                 >
+                                onPress={()=>{ item.url === null ? Alert.alert('Skill Chưa cập nhật') : openVideo(item.url) }}>
                                     <Image source={require('../img/wheel1.png')} style={styles.iconlist}/>
                                     <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}>{item.name}</Text>
-                                    <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}> {item.url}</Text>
+                                    {/* <Text style={{   fontSize: 14, left:15,backgroundColor:'transparent',fontWeight:'bold'}}> {item.url}</Text> */}
                                     {/* <Text style={{   fontSize: 14, textAlign:'right',right:15,backgroundColor:'transparent' }}>{item.lv}</Text> */}
                                 </TouchableOpacity>
                              
